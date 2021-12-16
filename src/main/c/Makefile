@@ -4,9 +4,19 @@ BUILD_DIR=../../../build/objects
 CC_FLAGS=-fPIC
 
 ifeq ($(OS),Windows_NT)
-    UNAME := windows
+    UNAME :=windows
 else
     UNAME := $(shell uname -s)
+endif
+
+ifeq ($(UNAME),windows)
+pla=win32
+else
+ifeq ($(UNAME),Darwin)
+pla=darwin
+else
+pla=linux
+endif
 endif
 
 LIB_DIR=../resources/obp2/hash/lib/${UNAME}_x86_64
@@ -47,7 +57,7 @@ ${LIB_DIR}:
 	mkdir -p ${LIB_DIR}
 
 obp2_hash_jni.o: obp2_hash_jni.c | ${BUILD_DIR}
-	gcc ${CC_FLAGS} -I${JAVA_HOME}/include -I${JAVA_HOME}/include/darwin -Wall -Werror -c obp2_hash_jni.c -o ${BUILD_DIR}/obp2_hash_jni.o
+	gcc ${CC_FLAGS} -I"${JAVA_HOME}"/include -I"${JAVA_HOME}"/include/${pla} -Wall -Werror -c obp2_hash_jni.c -o ${BUILD_DIR}/obp2_hash_jni.o
 
 fasthash.o: fast-hash/fasthash.c | ${BUILD_DIR}
 	gcc ${CC_FLAGS} -Wall -Werror -c fast-hash/fasthash.c -o ${BUILD_DIR}/fasthash.o
