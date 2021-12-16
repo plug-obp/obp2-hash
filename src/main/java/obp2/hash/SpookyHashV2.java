@@ -58,7 +58,7 @@ public class SpookyHashV2 extends ExternalHash {
         return hash;
     }
 
-    public static void main(String[] args) throws NoSuchAlgorithmException {
+    public static void main(String[] args) {
         int size = 50000;
         int runs = 10000;
         testSpooky128(size, runs);
