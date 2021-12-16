@@ -32,6 +32,15 @@ linux: obp2_hash_jni.o fasthash.o spooky_v2.o lookup3.o | ${LIB_DIR}
 		${BUILD_DIR}/lookup3.o \
 		-o ${LIB_DIR}/libobp2hash.so
 
+windows: obp2_hash_jni.o fasthash.o spooky_v2.o lookup3.o | ${LIB_DIR}
+		gcc $(CPPFLAGS) -fPIC -s -shared -Wall \
+				-Wl,--subsystem,windows \
+         		${BUILD_DIR}/obp2_hash_jni.o \
+         		${BUILD_DIR}/fasthash.o \
+         		${BUILD_DIR}/spooky_v2.o \
+         		${BUILD_DIR}/lookup3.o \
+         		-o ${LIB_DIR}/libobp2hash.dll
+
 ${BUILD_DIR}:
 	mkdir -p ${BUILD_DIR}
 ${LIB_DIR}:
