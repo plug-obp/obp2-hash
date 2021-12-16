@@ -4,7 +4,7 @@ BUILD_DIR=../../../build/objects
 CC_FLAGS=-fPIC
 
 ifeq ($(OS),Windows_NT)
-    UNAME := Windows
+    UNAME := windows
 else
     UNAME := $(shell uname -s)
 endif
