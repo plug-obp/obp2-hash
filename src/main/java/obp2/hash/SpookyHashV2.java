@@ -7,7 +7,10 @@ public class SpookyHashV2 extends ExternalHash {
     //void spookyhashv2_hash128(const void *message,size_t length, uint64 *hash1, uint64 *hash2)
     public static native boolean hash128(byte[] buffer, long[] seedin_hashout);
 
-    public static native boolean hash128int4(byte[] buffer, int[] seedin_hashout);
+    private static native boolean hash128int4(byte[] buffer, int[] seedin_hashout);
+    public static boolean hash128(byte[] buffer, int[] seedin_hashout) {
+        return hash128int4(buffer, seedin_hashout);
+    }
 
     //uint64_t spookyhashv2_hash64(const void *message,size_t length, uint64_t seed);
     public static native long hash64(byte[] buffer, long seed);
