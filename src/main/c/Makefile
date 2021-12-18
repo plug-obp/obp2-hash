@@ -34,7 +34,7 @@ Darwin: obp2_hash_jni.o fasthash.o spooky_v2.o lookup3.o | ${LIB_DIR}
 		${BUILD_DIR}/lookup3.o \
 		-o ${LIB_DIR}/libobp2hash.dylib
 
-linux: obp2_hash_jni.o fasthash.o spooky_v2.o lookup3.o | ${LIB_DIR}
+Linux: obp2_hash_jni.o fasthash.o spooky_v2.o lookup3.o | ${LIB_DIR}
 	gcc $(CPPFLAGS) -fPIC -shared -Wall \
 		${BUILD_DIR}/obp2_hash_jni.o \
 		${BUILD_DIR}/fasthash.o \

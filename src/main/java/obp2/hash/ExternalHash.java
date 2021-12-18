@@ -18,7 +18,7 @@ public class ExternalHash {
             resource += "Darwin_x86_64/libobp2hash.dylib";
             suffix = ".dylib";
         } else if (platform.contains("linux")) {
-            resource += "linux_x86_64/libobp2hash.so";
+            resource += "Linux_x86_64/libobp2hash.so";
             suffix = ".so";
         } else {
             // lets consider that it windows .....
