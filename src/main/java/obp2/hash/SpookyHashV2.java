@@ -1,6 +1,5 @@
 package obp2.hash;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
 public class SpookyHashV2 extends ExternalHash {
